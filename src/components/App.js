@@ -1,12 +1,13 @@
 import './App.css';
-
+import React from 'react'
+import {BrowserRouter as Router, Route, Switch} from 'react-router'
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        
-      </header>
-    </div>
+    <Router>
+        <Switch>
+            
+        </Switch>
+    </Router>
   );
 }
 
