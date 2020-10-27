@@ -13,6 +13,7 @@ const counter = (props) =>{
                 <button onClick={props.decrement} value={props.counter} className='buttonCounter'>-</button>
                 <div>{props.counter}</div>
                 <button onClick={props.increment} value={props.counter} className='buttonCounter'>+</button>
+                <button onClick={props.deleteCounter} className="buttonCounter">Eliminar</button>
             </li>
         </ul>
     );

@@ -68,7 +68,7 @@ class Counter extends React.Component{
             <BrowserRouter>
                 <Route exact path="/Counter" component={Counter}>
                     <div className="counter">
-                        <button onClick={this.addCounter2} className="buttonCounter"> NUEVO CONTADOR</button>
+                        <button onClick={this.addCounter2} className="buttonCounter"> Nuevo contador</button>
                         <div className="counterBack">
                             <ul>
                                 {
