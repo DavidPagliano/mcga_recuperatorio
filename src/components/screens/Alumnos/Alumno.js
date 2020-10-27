@@ -9,7 +9,7 @@ function Alumno(props){
     
     return(
         <BrowserRouter>
-            <Route exact path="/recuperatorio1">
+            <Route exact path="/Alumno">
                 <ul>
                     <li>
                         <form className="form">
@@ -56,9 +56,15 @@ function Alumno(props){
                         <Link className="link" to="/addForm">
                             <button>Agregar Alumno</button>
                         </Link>
+                        <Link className="link" to="/home">
+                            <button>volver</button>
+                        </Link>
                     </div>
                 </form>
             </Route>
+            <Route exact path="/home" component={Home}/>
         </BrowserRouter>
     );
 }
+
+export default Alumno;

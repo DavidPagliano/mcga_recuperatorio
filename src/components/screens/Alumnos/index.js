@@ -1,9 +1,8 @@
 import './style.css'
 import React from 'react';
-import {BrowserRouter, Route, Redirect, Link} from 'react-router-dom';
+import {BrowserRouter, Route, Link} from 'react-router-dom';
 import { Form} from 'react-final-form';
-import Alumnos from '../Alumnos'
-import Home from '../Home';
+import Alumnos from '../Alumnos/Alumno'
 
 class form extends React.Component{
     constructor(props){
@@ -54,39 +53,17 @@ class form extends React.Component{
         }
     }
 
-    validateInput = () =>{
-        let isValid = true;
-
-        if(!/^[a-zA-Z\s]*$/g.test(this.userInput.value)){
-            this.userInput,value = '';
-            this.userInput.placeholder = 'Solo letras';
-            isValid = false;
-        }
-
-        if(!/^[0-9]*$/g.test(this.yearsInput.value)) {
-            this.yearsInput.value = 0;
-            this.yearsInput.placeholder = 'solo numeros';
-            isValid = false;
-        }
-
-        if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$/g.test(this.emailInput.value)) {
-            this.emailInput.value = '';
-            this.emailInput.value = 'La dirección de email es incorrecta';
-        }
-
-        this.editState(isValid);
-    }
+  
 
     onSubmit(values){
         console.log('Submitting form', values);
     }
 
     render(){
-        let edit = this.state.edit;
+        
         return(
             <BrowserRouter>
-                <Redirect to="/recuperatorio1"/>
-                <Route extac path="/recuperatorio1" component={Home}>
+                <Route>
                     <div className="formContainer">
                         <button onClick={this.addAlumno2} className="buttonAlumno">+ Alumno</button>
                         <div className="alumnoBack">
@@ -103,6 +80,7 @@ class form extends React.Component{
                                                     email={this.state.Users.email}
                                                     years={this.state.Users.years}
                                                     deleteAlumno={this.deleteAlumno.bind(this, Users.id)}
+                                                    
                                                 />
                                             </Alumnos>
                                         )
@@ -115,7 +93,7 @@ class form extends React.Component{
                         </div>
                     </div>
                 </Route>
-                <Route exact path="/recuperatorio1" component={Home}></Route>
+                <Route exact path="/recuperatorio1" component={Alumnos}></Route>
             </BrowserRouter>
         )
     }

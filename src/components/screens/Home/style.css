@@ -1,0 +1,8 @@
+.buttons{
+    display:flex;
+    margin:10%;
+    flex-direction:column;
+    background-color:#FFC0CB;
+    border-radius:5px;
+    color:white;
+}

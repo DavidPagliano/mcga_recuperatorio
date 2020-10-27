@@ -1,0 +1,29 @@
+.buttonS{
+    display:flex;
+    margin:10%;
+    flex-direction:column;
+    background-color:#FFC0CB;
+    border-radius:5px;
+    color:white;
+}
+
+.form{
+    display:flex;
+    height:100%;
+    width:100%;
+    align-items:center;
+    flex-direction:column;
+}
+
+.inputField{
+    margin-bottom:10%;
+    background-color:#FFC0CB;
+    border-radius:5px;
+}
+
+.link{
+    text-decoration:none;
+}
+button:hover{
+    cursor:pointer;
+}
