@@ -27,7 +27,7 @@ class form extends React.Component{
         Users.years=event.target("years").value;
         this.setState({Users: Users});
     }
-
+    
     deleteAlumno=(id, event)=>{
         const Users = Object.assign([], this.state.Users);
         Users.splice(id, 1);
@@ -47,11 +47,42 @@ class form extends React.Component{
         return;
     }
 
+    editState = (isValid) =>{
+        if(isValid) {
+            let edit = this.state.edit;
+            this.setState({edit: !edit});
+        }
+    }
+
+    validateInput = () =>{
+        let isValid = true;
+
+        if(!/^[a-zA-Z\s]*$/g.test(this.userInput.value)){
+            this.userInput,value = '';
+            this.userInput.placeholder = 'Solo letras';
+            isValid = false;
+        }
+
+        if(!/^[0-9]*$/g.test(this.yearsInput.value)) {
+            this.yearsInput.value = 0;
+            this.yearsInput.placeholder = 'solo numeros';
+            isValid = false;
+        }
+
+        if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$/g.test(this.emailInput.value)) {
+            this.emailInput.value = '';
+            this.emailInput.value = 'La dirección de email es incorrecta';
+        }
+
+        this.editState(isValid);
+    }
+
     onSubmit(values){
         console.log('Submitting form', values);
     }
 
     render(){
+        let edit = this.state.edit;
         return(
             <BrowserRouter>
                 <Redirect to="/recuperatorio1"/>
@@ -71,6 +102,7 @@ class form extends React.Component{
                                                     last_name={this.state.Users.last_name}
                                                     email={this.state.Users.email}
                                                     years={this.state.Users.years}
+                                                    deleteAlumno={this.deleteAlumno.bind(this, Users.id)}
                                                 />
                                             </Alumnos>
                                         )

@@ -30,9 +30,9 @@ function Alumno(props){
                                         <Link className="link" to="/editForm">
                                             <button>Editar informarcion</button>
                                         </Link>
-                                        <Link className="link" to="/listForm">
-                                            <button>Lista de alumnos</button>
-                                        </Link>
+                                        <Link className="link" to="/addForm">
+                                             <button>Agregar Alumno</button>
+                                         </Link>
                                     </div>
                                 </li> 
                             </ul>
@@ -59,7 +59,6 @@ function Alumno(props){
                     </div>
                 </form>
             </Route>
-            <Route exact path="/Counter" component={Counters}></Route>
         </BrowserRouter>
     );
 }

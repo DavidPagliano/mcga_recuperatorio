@@ -18,3 +18,4 @@ const counter = (props) =>{
         </ul>
     );
 }
+export default counter;

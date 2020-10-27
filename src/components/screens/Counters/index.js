@@ -33,7 +33,7 @@ class Counter extends React.Component{
 
     decrement=(id, event)=>{
         const index = this.state.counters.findIndex((counter)=>{
-            return counter.id === id
+            return counter.id === id;
         });
 
         const counter = Object.assign({},this.state.counters[index]);
