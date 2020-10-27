@@ -1,8 +1,8 @@
 import './style.css'
 import React from 'react';
-import {BrowserRouter, Route, Redirect} from 'react-router-dom';
-import { Form} from 'react-final-form';
+import {BrowserRouter, Route, Link} from 'react-router-dom';
 import Alumnos from '../Alumnos'
+import Counter from '../Counters'
 
 class Home extends React.Component{
     

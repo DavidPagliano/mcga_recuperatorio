@@ -1,7 +1,8 @@
 import './style.css'
 import React from 'react'
 import {BrowserRouter, Link, Route } from 'react-router-dom'
-import Counter from './Counter'
+import Home from '../Home'
+import Counter1 from './Counter'
 
 class Counter extends React.Component{
     constructor(props){
@@ -43,4 +44,57 @@ class Counter extends React.Component{
         this.setState({counters:counters});
         return;
     }
+
+    deleteCounter=(id, event)=>{
+        const counters = Object.assign([], this.state.counters);
+        counters.splice(id, 1);
+        this.setState({counters: counters});
+        return;
+    }
+    addCounter2=(event)=>{
+        const counters= Object.assign([], this.state.counters);
+        counters.push({
+            id: this.state.counters.length,
+            created: Date(),
+            updated: 0,
+            counter: 0
+        });
+        this.setState({counters: counters});
+        return;
+    }
+
+    render(){
+        return(
+            <BrowserRouter>
+                <Route exact path="/Counter" component={Counter}>
+                    <div className="counter">
+                        <button onClick={this.addCounter2} className="buttonCounter"> NUEVO CONTADOR</button>
+                        <div className="counterBack">
+                            <ul>
+                                {
+                                    this.state.counters.map((counter)=>{
+                                        return(
+                                            <Counter1
+                                                id={counter.id}
+                                                created={counter.created}
+                                                updated={counter.updated}
+                                                counter={counter.counter}
+                                                increment={this.increment.bind(this, counter.id)}
+                                                decrement={this.decrement.bind(this, counter.id)}
+                                            />
+                                        )
+                                    })
+                                }
+                            </ul>
+                            <Link to="/recuperatorio1" className="link">
+                                <button className="buttonCounter">Volver</button>
+                            </Link>
+                        </div>
+                    </div>
+                </Route>
+                <Route exact path="/recuparatorio1" component={Home}></Route>
+            </BrowserRouter>
+        )
+    }
 }
+export default Counter;
