@@ -1,13 +1,13 @@
 import './App.css';
 import React from 'react'
-import {BrowserRouter as Router, Route, Switch} from 'react-router'
-function App() {
-  return (
-    <Router>
-        <Switch>
-            
-        </Switch>
-    </Router>
+import Home from './screens/Home'
+function App(){
+  return(
+    <div className="App">
+      <div className="home">
+        <Home />
+      </div>
+    </div>
   );
 }
 
