@@ -12,30 +12,14 @@ function Alumno(props){
             <Route exact path="/Alumno">
                 <ul>
                     <li>
-                        <form className="form">
-                            <ul>
-                                <li>
-                                    <h1>Formulario Alumno</h1>
-                                </li>
-                                <li>
-                                    <div>
-                                        <div><Field className='inputField' name='name' component='input' disabled='disable' placeholder={props.name}/></div>
-                                        <div><Field className='inputField' name='last_name' component='input' disabled='disable' placeholder={props.last_name}/></div>
-                                        <div><Field className='inputField' name='email' component='input' disabled='disable' placeholder={props.email}/></div>
-                                        <div><Field className='inputField' name='year' component='input' disabled='disable' placeholder={props.year}/></div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <Link className="link" to="/editForm">
-                                            <button>Editar informarcion</button>
-                                        </Link>
-                                        <Link className="link" to="/addForm">
-                                             <button>Agregar Alumno</button>
-                                         </Link>
-                                    </div>
-                                </li> 
-                            </ul>
+                        <h1>Formulario Alumno</h1>
+                    </li>
+                    <li>
+                        <form>
+                            <input type="text" name="name" value="Nombre"/>
+                            <input type="text" name="last_name" value="Apellido"/>
+                            <input type="text" name="email" value="Email"/>
+                            <input type="text" name="Edad" value="Edad"/>
                         </form>
                     </li>
                 </ul> 
@@ -44,10 +28,7 @@ function Alumno(props){
                 <form className="form">
                    <h1>Formulario Alumno</h1>
                     <div className='textbox'>
-                        <div><Field className='inputField' name='name' component='input' disabled='disable' placeholder={props.name}/></div>
-                        <div><Field className='inputField' name='last_name' component='input' disabled='disable' placeholder={props.last_name}/></div>
-                        <div><Field className='inputField' name='email' component='input' disabled='disable' placeholder={props.email}/></div>
-                        <div><Field className='inputField' name='year' component='input' disabled='disable' placeholder={props.year}/></div>
+                        
                     </div>
                     <div className='buttons'>
                         <Link className="link" to="/editForm">

@@ -86,13 +86,13 @@ class Counter extends React.Component{
                                     })
                                 }
                             </ul>
-                            <Link to="/recuperatorio1" className="link">
+                            <Link to="/home" className="link">
                                 <button className="buttonCounter">Volver</button>
                             </Link>
                         </div>
                     </div>
                 </Route>
-                <Route exact path="/recuparatorio1" component={Home}></Route>
+                <Route exact path="/home" component={Home}></Route>
             </BrowserRouter>
         )
     }
