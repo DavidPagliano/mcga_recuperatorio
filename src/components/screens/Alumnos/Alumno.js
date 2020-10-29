@@ -4,7 +4,7 @@ import {BrowserRouter, Route, Link } from 'react-router-dom';
 
 
 const alumno=(props)=>{
-
+   
     return(
         <BrowserRouter>
             <Route exact path="/Alumno">
@@ -37,7 +37,8 @@ const alumno=(props)=>{
                                     <input 
                                     placeholder={props.years}
                                     name="years"
-                                    type="number" min="1" max="99"></input></li>
+                                    type="number" min="1" max="99" ></input>
+                                    </li>
                                     <Link>
                                         <button onClick={props.handleInputChange} type="submit" className="buttons-form" className="material" >Guardar</button>
                                     </Link>

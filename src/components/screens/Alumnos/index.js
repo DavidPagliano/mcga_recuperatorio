@@ -13,10 +13,50 @@ class form extends React.Component{
                 last_name: 'Ingrese apellido',
                 email:'Ingrese email',
                 years:1
+            }],
+            validations:[{
+                name:'Ingrese nombre',
+                last_name: 'Ingrese apellido',
+                email:'Ingrese email',
+                years:1
             }]
         };
     }
 
+    
+    validateAll = () => {
+        
+
+        const { name, last_name, email, years } = this.state.values
+        const validations = { name: '', last_name:'',email: '', years: 1 }
+        let isValid = true
+        
+        if (!name) {
+          validations.name = 'Name is required'
+          isValid = false
+        }
+        if (!last_name) {
+            validations.last_name = 'Last name is required'
+            isValid = false
+          }
+        
+        if (!email) {
+          validations.email = 'Email is required'
+          isValid = false
+        }
+        
+        if (!years) {
+          validations.years = 'years is required'
+          isValid = false
+        }
+        
+        if (!isValid) {
+          this.setState({ validations })
+        }
+        
+        return isValid
+      }
+    
 
     addAlumno=(event)=>{
     
@@ -54,7 +94,15 @@ class form extends React.Component{
     onSubmit(values){
         console.log('Submitting form', values);
     }
-
+    validet(){
+        const { name, last_name, email, years} = this.state.values
+        const  { 
+          name: nameVal,
+          last_name: last_nameVal,
+          email: emailVal, 
+          years: yearVal 
+        } = this.state.validations;
+    }
     render() {
         
         return(
@@ -72,10 +120,10 @@ class form extends React.Component{
                                             <Alumnos1
                                             onSubmit={this.onSubmit}
                                             render={alumno1}
-                                            name={alumno1.name, this.state.Alumno.name}
-                                            last_name={alumno1.last_name, this.state.Alumno.last_name}
-                                            email={alumno1.email, this.state.Alumno.email}
-                                            years={alumno1.years, this.state.Alumno.years}
+                                            name={alumno1.name, this.state.Alumno.name, this.validet}
+                                            last_name={alumno1.last_name, this.state.Alumno.last_name, this.validet}
+                                            email={alumno1.email, this.state.Alumno.email, this.validet}
+                                            years={alumno1.years, this.state.Alumno.years, this.validet}
                                             deleteAlumno1={this.deleteAlumno.bind(this, alumno1.id)}
                                             handleInputChange={this.handleInputChange.bind(this, alumno1.id)}
                                             >                                          

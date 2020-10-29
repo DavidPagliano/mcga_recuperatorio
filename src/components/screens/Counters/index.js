@@ -1,7 +1,6 @@
 import './style.css'
 import React from 'react'
-import {BrowserRouter, Link, Route } from 'react-router-dom'
-import Home from '../Home'
+import {BrowserRouter, Route } from 'react-router-dom'
 import Counter1 from './Counter'
 
 class Counter extends React.Component{
@@ -68,7 +67,7 @@ class Counter extends React.Component{
             <BrowserRouter>
                 <Route exact path="/Counter" component={Counter}>
                     <div className="counter">
-                        <button onClick={this.addCounter2} className="buttonCounter"> Nuevo contador</button>
+                        <button onClick={this.addCounter2} className="buttonCounter" className="material"> Nuevo contador</button>
                         <div className="counterBack">
                             <ul>
                                 {
@@ -81,18 +80,17 @@ class Counter extends React.Component{
                                                 counter={counter.counter}
                                                 increment={this.increment.bind(this, counter.id)}
                                                 decrement={this.decrement.bind(this, counter.id)}
+                                                deleteCounter={this.deleteCounter.bind(this, counter.id)}
                                             />
                                         )
                                     })
                                 }
                             </ul>
-                            <Link to="/home" className="link">
-                                <button className="buttonCounter">Volver</button>
-                            </Link>
+                            
+                            
                         </div>
                     </div>
                 </Route>
-                <Route exact path="/home" component={Home}></Route>
             </BrowserRouter>
         )
     }
