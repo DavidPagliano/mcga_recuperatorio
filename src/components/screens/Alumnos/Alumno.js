@@ -1,51 +1,107 @@
 import './style.css';
 import React from 'react';
-import { Field} from 'react-final-form';
-import {BrowserRouter, Link, Route } from 'react-router-dom';
-import Home from '../Home'
+import {BrowserRouter, Route, Link } from 'react-router-dom';
 
-function Alumno(props){
 
-    
+const alumno=(props)=>{
+
     return(
         <BrowserRouter>
             <Route exact path="/Alumno">
-                <ul>
-                    <li>
-                        <h1>Formulario Alumno</h1>
-                    </li>
+            <div className="warpper">
+                <ul className="form-style">
                     <li>
                         <form>
-                            <input type="text" name="name" value="Nombre"/>
-                            <input type="text" name="last_name" value="Apellido"/>
-                            <input type="text" name="email" value="Email"/>
-                            <input type="text" name="Edad" value="Edad"/>
+                            <ul className="inputs-form">
+                                <li>
+                                    <label>Nombre: </label>
+                                    <input 
+                                    placeholder={props.name}
+                                    name="name"
+                                    type="text"
+                                ></input></li>
+                                <li>
+                                    <label>Apellido: </label>
+                                    <input 
+                                   placeholder={props.last_name}
+                                    name="last_name"
+                                    type="text"></input></li>
+                                <li>
+                                    <label>Email: </label>
+                                    <input 
+                                    placeholder={props.email}
+                                    name="email"
+                                    type="email"></input></li>
+                                <li>
+                                    <label>Edad: </label>
+                                    <input 
+                                    placeholder={props.years}
+                                    name="years"
+                                    type="number" min="1" max="99"></input></li>
+                                    <Link>
+                                        <button onClick={props.handleInputChange} type="submit" className="buttons-form" className="material" >Guardar</button>
+                                    </Link>
+                                
+                                <Link to="/editAlumno">
+                                    <button onClick={props.editAlumno} className="buttons-form" className="material">Editar</button>
+                                </Link>
+                            </ul>      
                         </form>
                     </li>
-                </ul> 
+                </ul>
+            </div>
             </Route>
-            <Route exact path="/editForm">
-                <form className="form">
-                   <h1>Formulario Alumno</h1>
-                    <div className='textbox'>
-                        
-                    </div>
-                    <div className='buttons'>
-                        <Link className="link" to="/editForm">
-                            <button>Editar informarcion</button>
-                        </Link>
-                        <Link className="link" to="/addForm">
-                            <button>Agregar Alumno</button>
-                        </Link>
-                        <Link className="link" to="/home">
-                            <button>volver</button>
-                        </Link>
-                    </div>
-                </form>
+            <Route exact path="/editAlumno">
+            <div className="warpper">
+                <ul className="form-style">
+                    <li>
+                        <form>
+                            <ul className="inputs-form">
+                                <li>
+                                    <label>Nombre: </label>
+                                    <input 
+                                    placeholder={props.name}
+                                    disabled="disable"
+                                    name="name"
+                                    type="text"
+                                ></input></li>
+                                <li>
+                                    <label>Apellido: </label>
+                                    
+                                    <input 
+                                    placeholder={props.last_name}
+                                    disabled="disable"
+                                    name="last_name"
+                                    type="text"></input></li>
+                                <li>
+                                    <label>Email: </label>
+                                    <input 
+                                    placeholder={props.email}
+                                    disabled="disable"
+                                    name="email"
+                                    type="email"></input></li>
+                                <li>
+                                    <label>Edad: </label>
+                                    <input 
+                                    placeholder={props.years}
+                                    disabled="disable"
+                                    name="years"
+                                    type="number" min="1" max="99"></input>
+                                </li>
+                                    <Link to="/Alumno">
+                                        <button onClick={props.handleInputChange} type="submit" className="buttons-form" className="material" >Guardar</button>
+                                    </Link>
+                                    
+                                    <button onClick={props.deleteAlumno} className="buttons-form" className="material">Eliminar</button>
+                            </ul>      
+                        </form>
+                    </li>
+                </ul>
+            </div>
             </Route>
-            <Route exact path="/home" component={Home}/>
         </BrowserRouter>
-    );
+    )
 }
 
-export default Alumno;
+
+export default alumno;

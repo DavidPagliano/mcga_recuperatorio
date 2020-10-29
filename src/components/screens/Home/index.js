@@ -1,33 +1,24 @@
 import './style.css'
-import React from 'react';
-import {render} from 'react-dom'
-import {BrowserRouter, Route, Link, Switch, Redirect } from 'react-router-dom';
-import Alumnos from '../Alumnos/index'
-import Counter from '../Counters/index'
+import React from 'react'
+import {BrowserRouter,Route, Link, Switch} from 'react-router-dom'
+import Alumno from '../Alumnos/index.js'
+import Counter from '../Counters/index.js'
 
-class Home extends React.Component{
- render(){
-    return(
-        
-        <BrowserRouter>
-        <>
-        <Route >
-                <Link className="Link" to="/Alumno">
-                     <button className="buttons">Listado de alumnos</button>
-                </Link>
-                <Link className="Link" to="/Counter"> 
-                    <button className="buttons">Listado de contadores</button>
-                </Link>
-            </Route>   
-            <Switch> 
-                <Route exact path="/Alumno" component={Alumnos}/>
-                <Route exact path="/Counter" component={Counter}/>
-            </Switch>
-        </>
-            
-        </BrowserRouter>
-    )
- }
+
+function Home(){
+  return(
+    <BrowserRouter>
+    <ul className="navegation">
+      <li className="button"><Link to="counter" className="link">counter</Link></li>
+      <li className="button"><Link to="alumno" className="link">alumno</Link></li>
+    </ul>
+    <Switch>
+      <Route path="/counter" component={Counter}/> 
+      <Route path="/alumno" component={Alumno}/> 
+    </Switch>
+    
+ </BrowserRouter>
+   
+  )
 }
-
 export default Home;
